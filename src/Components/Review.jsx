@@ -5,8 +5,8 @@ const Review = () => {
         <h1 className="text-5xl text-center font-bold py-10">
           Customers Review
         </h1>
-        <div className="flex justify-around gap-4">
-          <div className="relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
+        <div className="md:flex justify-around gap-4 ">
+          <div className="mb-6 relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
             <div className="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-[url('https://i.ibb.co/h9j46wB/mohamad-khosravi-eb0mo-HDPBI-unsplash.jpg')] bg-cover bg-clip-border bg-center text-gray-700 shadow-none">
               <div className="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50" />
             </div>
@@ -25,7 +25,7 @@ const Review = () => {
               />
             </div>
           </div>
-          <div className="relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
+          <div className="mb-6 relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
             <div className="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-[url('https://i.ibb.co/qWbRmqN/mahdi-bafande-XCU9-ZV-ys5w-unsplash.jpg')] bg-cover bg-clip-border bg-center text-gray-700 shadow-none">
               <div className="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50" />
             </div>
@@ -44,7 +44,7 @@ const Review = () => {
               />
             </div>
           </div>
-          <div className="relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
+          <div className="mb-6 relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
             <div className="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-[url('https://i.ibb.co/w43VG8Z/mohamad-khosravi-d54wbtjedog-unsplash.jpg')] bg-cover bg-clip-border bg-center text-gray-700 shadow-none">
               <div className="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50" />
             </div>
