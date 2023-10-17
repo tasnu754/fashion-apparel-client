@@ -48,9 +48,11 @@ const Navbar = () => {
       </div>
     );
 
+    // via-[#59C173]
+
   return (
-    <div className="md:px-10">
-      <div className="navbar bg-base-100 flex-col md:flex-row ">
+    <div className="md:px-10 bg-gradient-to-r from-[#74ebd5]  to-[#ACB6E5]">
+      <div className="navbar flex-col md:flex-row ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
