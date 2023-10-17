@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
 
     const navItem = (
-      <div className="lg:flex gap-4 ">
+      <div className="lg:flex gap-4 text-white">
         <li>
           <NavLink
             to="/"
@@ -51,7 +51,7 @@ const Navbar = () => {
     // via-[#59C173]
 
   return (
-    <div className="md:px-10 bg-gradient-to-r from-[#74ebd5]  to-[#ACB6E5]">
+    <div className="md:px-10 bg-gradient-to-r from-[#1CB5E0]  to-[#000046]">
       <div className="navbar flex-col md:flex-row ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -84,7 +84,7 @@ const Navbar = () => {
               src="https://i.ibb.co/CnpVqQp/Fashion.png"
               alt=""
             />
-            <a className="btn btn-ghost normal-case md:text-2xl lg:text-3xl font-bold">
+            <a className="btn btn-ghost normal-case md:text-2xl lg:text-3xl font-bold text-white md:text-black">
               Fashion and Apparel
             </a>
           </div>
