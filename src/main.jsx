@@ -7,14 +7,21 @@ import {
 } from "react-router-dom";
 import MainPage from './Pages/MainPage';
 import ErrorPage from './Pages/ErrorPage';
+import Home from './Pages/Home';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainPage></MainPage>,
-    errorElement:<ErrorPage></ErrorPage>
-  },
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
