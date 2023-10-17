@@ -25,4 +25,33 @@
             color: #fff;
             text-decoration: none;
           }
+
+          .card{
+            width: 250px;
+            height: 300px;
+            display: inline-block;
+            border-radius: 10px;
+            padding: 15px 25px;
+            box-sizing: border-box;
+            margin: 10px 15px;
+            transition: transform 0.5s;
+            background-position: center;
+            background-size: cover;
+          }
+          .card1{
+             background-image: url('https://i.ibb.co/Q6j31bL/artificial-photography-v-B5qtt8-X4-NA-unsplash.jpg');
+          }
+          .card2{
+             background-image: url('https://i.ibb.co/z740tpJ/junko-nakase-Q-72wa9-7-Dg-unsplash.jpg');
+          }
+          .card3{
+             background-image: url('https://i.ibb.co/tmR8jmV/nordwood-themes-Nv4-QHk-TVEa-I-unsplash.jpg');
+          }
+          .card4{
+             background-image: url('https://i.ibb.co/MS1zhsG/marissa-grootes-D4j-Raha-Ua-Ic-unsplash.jpg');
+          }
+
+          .card:hover{
+            transform: translateY(-15px);
+          }
          
