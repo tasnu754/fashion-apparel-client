@@ -1,6 +1,7 @@
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Navbar from "../Components/Navbar";
+import Review from "../Components/Review";
 import Sells from "../Components/Sells";
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
             <Navbar></Navbar>
             <Header></Header>
             <Sells></Sells>
+            <Review></Review>
             <Footer></Footer>
         </div>
     );
