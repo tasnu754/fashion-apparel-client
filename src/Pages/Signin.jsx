@@ -1,10 +1,34 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthProvider } from "./firebaseAuth";
 
 const Signin = () => {
+   const { login } = useContext(AuthProvider);
+
+  const handlesignin = (e) => {
+     e.preventDefault();
+     const form = e.target;
+     const email = form.email.value;
+     const pass = form.password.value;
+    console.log(email, pass);
+    
+    login(email, pass)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+    })
+
+  }
+
     return (
       <div className=" flex justify-center min-h-screen items-center">
         <div className="w-[95%] mx-auto md:w-full max-w-md p-4 bg-white rounded-lg shadow-xl sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-          <form className="space-y-4 md:space-y-6" action="#">
+          <form
+            onSubmit={handlesignin}
+            className="space-y-4 md:space-y-6" action="#">
             <h5 className="text-2xl md:text-3xl font-bold text-[#53346D] dark:text-white text-center">
               Signin to our platform 
             </h5>
@@ -48,7 +72,7 @@ const Signin = () => {
                     type="checkbox"
                     defaultValue
                     className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                    required
+                    
                   />
                 </div>
                 <label
