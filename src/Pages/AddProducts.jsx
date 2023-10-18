@@ -1,29 +1,29 @@
-
+import swal from "sweetalert";
 
 const AddProducts = () => {
-
-    const handleAddProduct = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const proName = form.name.value;
-        const proImg = form.image.value;
-        const brand = form.brand.value;
-        const type = form.type.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
-        const descript = form.des.value;
-        const product = {
-          proName,
-          proImg,
-          brand,
-          type,
-          price,
-          rating,
-          descript,
-        };
-        form.reset();
-        console.log(product);
-    }
+  const handleAddProduct = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const proName = form.name.value;
+    const proImg = form.image.value;
+    const brand = form.brand.value;
+    const type = form.type.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const descript = form.des.value;
+    const product = {
+      proName,
+      proImg,
+      brand,
+      type,
+      price,
+      rating,
+      descript,
+    };
+      form.reset();
+      swal("Product added!", "Successfully", "success");
+    console.log(product);
+  };
 
   return (
     <div>
@@ -32,9 +32,7 @@ const AddProducts = () => {
           <h2 className="mb-4 text-5xl font-bold text-[#53346D] dark:text-white text-center">
             Add product
           </h2>
-          <form
-           onSubmit={handleAddProduct}
-           action="#">
+          <form onSubmit={handleAddProduct} action="#">
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div className="sm:col-span-2">
                 <label
