@@ -1,4 +1,30 @@
+
+
 const AddProducts = () => {
+
+    const handleAddProduct = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const proName = form.name.value;
+        const proImg = form.image.value;
+        const brand = form.brand.value;
+        const type = form.type.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const descript = form.des.value;
+        const product = {
+          proName,
+          proImg,
+          brand,
+          type,
+          price,
+          rating,
+          descript,
+        };
+        form.reset();
+        console.log(product);
+    }
+
   return (
     <div>
       <section className="bg-white ] dark:bg-gray-900">
@@ -6,7 +32,9 @@ const AddProducts = () => {
           <h2 className="mb-4 text-5xl font-bold text-[#53346D] dark:text-white text-center">
             Add product
           </h2>
-          <form action="#">
+          <form
+           onSubmit={handleAddProduct}
+           action="#">
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div className="sm:col-span-2">
                 <label
@@ -113,6 +141,7 @@ const AddProducts = () => {
                   Short Description
                 </label>
                 <textarea
+                  name="des"
                   id="description"
                   rows={5}
                   className="block p-2.5 w-full text-lg text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
