@@ -1,11 +1,13 @@
 import { Outlet } from "react-router-dom";
+import Navbar from "../Components/Navbar";
 
 
 const MainPage = () => {
     return (
-        <div className="font-roboto">
-            <Outlet></Outlet>
-        </div>
+      <div className="font-roboto">
+        <Navbar></Navbar>
+        <Outlet></Outlet>
+      </div>
     );
 };
 

@@ -8,6 +8,7 @@ import {
 import MainPage from './Pages/MainPage';
 import ErrorPage from './Pages/ErrorPage';
 import Home from './Pages/Home';
+import Register from './Pages/Register';
 
 
 const router = createBrowserRouter([
@@ -17,11 +18,15 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: '/',
-        element: <Home></Home>
-      }
-    ]
-  }
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/signup",
+        element: <Register></Register>
+      },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
