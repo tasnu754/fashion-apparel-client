@@ -2,7 +2,7 @@
 const Review = () => {
     return (
       <div className="my-10">
-        <h1 className="text-5xl text-center font-bold py-10">
+        <h1 className="text-5xl text-center font-bold py-10 text-[#1D2671]">
           Customers Review
         </h1>
         <div className="md:flex justify-around gap-4 ">

@@ -2,7 +2,7 @@
 const Sells = () => {
     return (
       <div className="w-[95%] mx-auto my-4">
-        <h2 className="text-5xl font- text-center py-10">
+        <h2 className="text-5xl font-bold text-center py-10 text-[#1D2671]">
           Grab Our Best Collections
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:grid-rows-3 gap-2 h-[1200px]">

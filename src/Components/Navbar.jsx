@@ -51,7 +51,7 @@ const Navbar = () => {
     // via-[#59C173]
 
   return (
-    <div className="md:px-10 bg-gradient-to-r from-[#1CB5E0]  to-[#000046]">
+    <div className="md:px-10 bg-gradient-to-r from-[#c33764]  to-[#1D2671]">
       <div className="navbar flex-col md:flex-row ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -84,7 +84,7 @@ const Navbar = () => {
               src="https://i.ibb.co/CnpVqQp/Fashion.png"
               alt=""
             />
-            <a className="btn btn-ghost normal-case md:text-2xl lg:text-3xl font-bold text-white md:text-black">
+            <a className="btn btn-ghost normal-case md:text-2xl lg:text-3xl font-bold text-white  md:text-[#191b39]">
               Fashion and Apparel
             </a>
           </div>

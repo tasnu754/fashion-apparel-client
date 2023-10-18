@@ -1,3 +1,4 @@
+import Brands from "../Components/Brands";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Navbar from "../Components/Navbar";
@@ -9,6 +10,7 @@ const Home = () => {
         <div>
             <Navbar></Navbar>
             <Header></Header>
+            <Brands></Brands>
             <Sells></Sells>
             <Review></Review>
             <Footer></Footer>

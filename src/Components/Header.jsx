@@ -23,32 +23,29 @@ const Header = () => {
               </div>
 
               <div className="lg:w-1/2 grid md:grid-cols-2 gap-4">
-                <div
-                  className="card card1 "
-                >
-                  <h4 className="text-gray-700 text-3xl font-bold mt-56">
+                <div className="card card1 ">
+                  <h4 className="text-[#1D2671] text-3xl font-bold mt-56">
                     High Quality
                   </h4>
                 </div>
-                <div
-                  className="card card2">
-                  <h4 className="text-gray-700 text-3xl font-bold mt-56">
+                <div className="card card2">
+                  <h4 className="text-[#1D2671] text-3xl font-bold mt-56">
                     Premium
                   </h4>
-                 </div>
-                <div
-                  className="card card3">
-                  <h4 className="text-gray-700 text-3xl font-bold mt-56">
+                </div>
+                <div className="card card3">
+                  <h4 className="text-[#1D2671] text-3xl font-bold mt-56">
                     Standard
                   </h4>
-                 </div>
-                <div
-                  className="card card4">
-                  <h4 className="text-gray-700
-                   text-3xl font-bold mt-52">
+                </div>
+                <div className="card card4">
+                  <h4
+                    className="text-[#1D2671] 
+                   text-3xl font-bold mt-52"
+                  >
                     Cool
                   </h4>
-                 </div>
+                </div>
               </div>
             </div>
           </div>
