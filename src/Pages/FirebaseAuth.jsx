@@ -15,41 +15,51 @@ export const AuthProvider = createContext(null);
 
 const FirebaseAuth = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const provider = new GoogleAuthProvider();
 
-    const register = (email , password) => {
+    const register = (email, password) => {
+        setLoading(true);
        return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
-        });
-
-        return () => {
-            unSubscribe();
-        }
-    },[])
-
-    const login = (email , password) => {
-       return signInWithEmailAndPassword(auth, email, password);
+   
+    const login = (email, password) => {
+        setLoading(true); 
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
     const goggleLogin = () => {
+        setLoading(false);
         return signInWithPopup(auth, provider);
     }
 
     const logout = () => {
+        setLoading(true);
         return signOut(auth);
     }
 
-    const ProfileUpdate = (name , photo) => {
+    const ProfileUpdate = (name, photo) => {
+        setLoading(true);
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photo
         });
     }
+
+     useEffect(() => {
+       const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+           setUser(currentUser);
+           setLoading(false);
+           
+       });
+
+       return () => {
+         unSubscribe();
+       };
+     }, []);
+
 
     const info = {
       user,
@@ -58,6 +68,7 @@ const FirebaseAuth = ({ children }) => {
       goggleLogin,
       logout,
       ProfileUpdate,
+      loading,
     };
 
   return (

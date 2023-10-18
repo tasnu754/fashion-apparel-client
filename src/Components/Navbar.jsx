@@ -37,26 +37,36 @@ const Navbar = () => {
             Sign up
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/addProduct"
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "bg-[#302b63] text-white" : ""
-            }
-          >
-            Add Product
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/cart"
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "bg-[#302b63] text-white" : ""
-            }
-          >
-            My Cart
-          </NavLink>
-        </li>
+        { user && <>
+          <li>
+            <NavLink
+              to="/addProduct"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "bg-[#302b63] text-white"
+                  : ""
+              }
+            >
+              Add Product
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/cart"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "bg-[#302b63] text-white"
+                  : ""
+              }
+            >
+              My Cart
+            </NavLink>
+          </li>
+        </>}
       </div>
     );
 
