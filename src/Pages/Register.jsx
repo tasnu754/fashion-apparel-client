@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Register = () => {
   return (
     <div className=" flex justify-center min-h-screen items-center my-10">
       <div className="w-[95%] md:w-full mx-auto max-w-lg p-4 bg-white rounded-xl shadow-xl sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <form className="space-y-2 md:space-y-4" action="#">
-          <h5 className="text-xl md:text-3xl font-bold text-[#53346D] dark:text-white">
+          <h5 className="text-2xl md:text-3xl font-bold text-[#53346D] dark:text-white text-center">
             Signup to our platform
           </h5>
           <div>
@@ -43,7 +45,7 @@ const Register = () => {
               htmlFor="email"
               className="block mb-2 md:text-xl font-medium text-gray-900 dark:text-white"
             >
-             Email
+              Email
             </label>
             <input
               type="email"
@@ -96,12 +98,12 @@ const Register = () => {
           </div>
           <div className="md:text-lg font-medium text-gray-500 dark:text-gray-300">
             Have an account?{" "}
-            <a
-              href="#"
-              className="text-blue-700 hover:underline dark:text-blue-500"
+            <Link
+              to="/signin"
+              className="text-[#623785] hover:underline dark:text-[#341d47]"
             >
               Signin
-            </a>
+            </Link>
           </div>
         </form>
       </div>

@@ -9,6 +9,7 @@ import MainPage from './Pages/MainPage';
 import ErrorPage from './Pages/ErrorPage';
 import Home from './Pages/Home';
 import Register from './Pages/Register';
+import Signin from './Pages/Signin';
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Register></Register>
+      },
+      {
+        path: "/signin",
+        element: <Signin></Signin>
       },
     ],
   },
