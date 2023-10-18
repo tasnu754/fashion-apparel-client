@@ -1,8 +1,20 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthProvider } from "../Pages/firebaseAuth";
 
 
 const Navbar = () => {
+   const { user, logout } = useContext(AuthProvider);
 
+  const handleSignout = () => {
+    logout()
+      .then(() => {
+        alert("signout");
+      })
+    .catch(error => console.log(error))
+  }
+    
+  
     const navItem = (
       <div className="lg:flex gap-4 text-white">
         <li>
@@ -95,7 +107,19 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/signin" className="btn btn-nav">Signin</Link>
+          {user ? (
+            <div className="md:flex justify-between items-center gap-4">
+              <p className="text-white text-xl inline">{user.displayName}</p>
+              <img className="w-10 h-10 rounded-full inline ml-4" src={user.photoURL} alt="" />
+              <button onClick={handleSignout} className="btn btn-nav">
+                Signout
+              </button>
+            </div>
+          ) : (
+            <Link to="/signin" className="btn btn-nav">
+              Signin
+            </Link>
+          )}
         </div>
       </div>
     </div>

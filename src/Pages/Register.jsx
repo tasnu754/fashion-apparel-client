@@ -1,12 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthProvider } from "./firebaseAuth";
 
+// https://i.ibb.co/Tvt8Nhy/ashton-bingham-EQFt-Ez-JGERg-unsplash.jpg
+
 const Register = () => {
-  const { register } = useContext(AuthProvider);
+  const { register, ProfileUpdate } = useContext(AuthProvider);
+  const [error, setError] = useState(null);
   
 
   const handleRegister = (e) => {   
+    setError(null);
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -14,22 +18,44 @@ const Register = () => {
     const email = form.email.value;
     const pass = form.password.value;
     console.log(name, pic, email, pass);
+
+    if (pass.length < 6) {
+      return setError("Password should be more than 6 charaters");
+    }
+
+    if (!/[A-Z]/.test(pass)) {
+      return setError("Password should contain at least one Capital letter");
+    }
+    if (!/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(pass)) {
+      return setError("Password should contain at least one special character");
+    }
     
     register(email, pass)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        ProfileUpdate(name, pic)
+          .then(() => {
+            console.log("Updated");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
-      console.log(error.message);
-    })
+        console.log(error.message);
+      });
+    
+    form.reset();
   }
   return (
     <div className=" flex justify-center min-h-screen items-center my-10">
       <div className="w-[95%] md:w-full mx-auto max-w-lg p-4 bg-white rounded-xl shadow-xl sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <form
           onSubmit={handleRegister}
-          className="space-y-2 md:space-y-4" action="#">
+          className="space-y-2 md:space-y-4"
+          action="#"
+        >
           <h5 className="text-2xl md:text-3xl font-bold text-[#53346D] dark:text-white text-center">
             Signup to our platform
           </h5>
@@ -88,6 +114,7 @@ const Register = () => {
             >
               Password
             </label>
+
             <input
               type="password"
               name="password"
@@ -97,6 +124,7 @@ const Register = () => {
               required
             />
           </div>
+          {error && <p className="text-red-600">{error}</p>}
           <div className="flex items-strat">
             <div className="flex items-center">
               <div className="flex items-center h-5">
@@ -105,7 +133,6 @@ const Register = () => {
                   type="checkbox"
                   defaultValue
                   className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                  
                 />
               </div>
               <label
