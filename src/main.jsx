@@ -10,6 +10,7 @@ import ErrorPage from './Pages/ErrorPage';
 import Home from './Pages/Home';
 import Register from './Pages/Register';
 import Signin from './Pages/Signin';
+import FirebaseAuth from './Pages/firebaseAuth';
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <FirebaseAuth>
+      <RouterProvider router={router} />
+    </FirebaseAuth>
   </React.StrictMode>
 );

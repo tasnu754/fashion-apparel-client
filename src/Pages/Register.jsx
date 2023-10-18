@@ -1,10 +1,35 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthProvider } from "./firebaseAuth";
 
 const Register = () => {
+  const { register } = useContext(AuthProvider);
+  
+
+  const handleRegister = (e) => {   
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const pic = form.photo.value;
+    const email = form.email.value;
+    const pass = form.password.value;
+    console.log(name, pic, email, pass);
+    
+    register(email, pass)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+      console.log(error.message);
+    })
+  }
   return (
     <div className=" flex justify-center min-h-screen items-center my-10">
       <div className="w-[95%] md:w-full mx-auto max-w-lg p-4 bg-white rounded-xl shadow-xl sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <form className="space-y-2 md:space-y-4" action="#">
+        <form
+          onSubmit={handleRegister}
+          className="space-y-2 md:space-y-4" action="#">
           <h5 className="text-2xl md:text-3xl font-bold text-[#53346D] dark:text-white text-center">
             Signup to our platform
           </h5>
