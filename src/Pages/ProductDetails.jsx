@@ -1,16 +1,36 @@
-import { useLoaderData} from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import swal from "sweetalert";
 
 const ProductDetails = () => {
 
     const loadData = useLoaderData();
+
+    const handleAddCart = () => {
+        fetch("http://localhost:5000/add", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(loadData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              swal("Added product in My cart!", "Successfully", "success");
+            }
+          });
+
+
+    }
  
 
     return (
-      <div className="text-[#53346D] bg-blue-gray-400 pb-10 ">
+        <div className="text-[#53346D] bg-blue-gray-400 pb-10 ">
+        
         <div className="p-2">
           <img
             className="lg:h-[730px] w-[90%] mx-auto rounded-lg object-cover object-center shadow-xl shadow-blue-gray-900/50"
-            src={loadData.proImg}
+            src={loadData?.proImg}
             alt=""
           />
         </div>
@@ -21,13 +41,13 @@ const ProductDetails = () => {
           <div className="flex justify-around">
             <div className="space-y-10">
               <h2 className="text-xl font-bold ">
-                Product name: {loadData.proName}
+                Product name: {loadData?.proName}
               </h2>
-              <p className="text-xl font-bold">Price: ${loadData.price}</p>
+              <p className="text-xl font-bold">Price: ${loadData?.price}</p>
             </div>
             <div className="space-y-10">
-              <p className="text-xl font-bold">Type: {loadData.type}</p>
-              <p className="text-xl font-bold">Rating: {loadData.rating}.0</p>
+              <p className="text-xl font-bold">Type: {loadData?.type}</p>
+              <p className="text-xl font-bold">Rating: {loadData?.rating}.0</p>
             </div>
           </div>
           <h3 className="text-center text-2xl font-bold mt-10">Description:</h3>
@@ -35,7 +55,12 @@ const ProductDetails = () => {
             {loadData.descript}
           </p>
           <div className="flex justify-center mt-10">
-            <button className="btn-nav ">Add to Cart</button>
+            <button
+              onClick={handleAddCart}
+              className="btn btn-nav "
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

@@ -200,7 +200,7 @@ const AddProducts = () => {
               </div>
             </div>
             <div className="w-[80%] mx-auto">
-              <button type="submit" className="btn-nav md:w-full">
+              <button type="submit" className="btn btn-nav md:w-full">
                 Add product
               </button>
             </div>

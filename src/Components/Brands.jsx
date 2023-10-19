@@ -18,20 +18,20 @@ const Brands = () => {
         Our Most Demanded Brands
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {brands.map((brand) => (
+        {brands?.map((brand) => (
           <Link to={`/brand/${brand.brandName}`} key={brand.id}>
             <div className="relative flex flex-col text-gray-700 bg-white shadow-lg w-[95%] lg:w-[80%] mx-auto rounded-xl bg-clip-border">
               <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white h-96 rounded-xl bg-clip-border">
-                <img src={brand.image} className="object-cover w-full h-full" />
+                <img src={brand?.image} className="object-cover w-full h-full" />
               </div>
               <div className="p-6">
                 <div className="text-center mb-2">
                   <p className="block text-3xl antialiased font-bold leading-relaxed text-center  text-[#1D2671]">
-                    {brand.brandName}
+                    {brand?.brandName}
                   </p>
                   <p className="font-bold text-gray-600">
                     {" "}
-                    {brand.description}
+                    {brand?.description}
                   </p>
                 </div>
               </div>

@@ -62,11 +62,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <ProductDetails></ProductDetails>,
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://fashion-apparel-server-five.vercel.app/product/${params.id}`
           ),
+      },
+      {
+        path: "/carts",
+        element: <Carts></Carts>,
+        // loader: () => fetch("http://localhost:5000/carts"),
       },
     ],
   },
