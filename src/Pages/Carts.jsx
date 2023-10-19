@@ -2,7 +2,8 @@
 
 import { Rating } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import swal from "sweetalert";
+
 
 const Carts = () => {
 
@@ -12,7 +13,26 @@ const Carts = () => {
         fetch("http://localhost:5000/carts")
           .then((res) => res.json())
           .then((data) => setCarts(data));
-    },[])
+    }, [])
+    
+    const handleDelete = (id) => {
+        
+        fetch(`http://localhost:5000/carts/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    swal(
+                      "Deleted!",
+                      "Successfully",
+                      "success"
+                    );
+               }
+        })
+    }
+
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-[80%] mx-auto my-10">
         {carts?.map((cart, idx) => (
@@ -22,12 +42,12 @@ const Carts = () => {
           >
             <a className="">
               <img
-                className="h-[250px] lg:h-[260px] w-full rounded-xl cover mb-10"
+                className="h-[250px] lg:h-[260px] w-96 rounded-xl cover mb-10"
                 src={cart?.proImg}
                 alt="product image"
               />
             </a>
-            <div className="px-5 py-2">
+            <div className=" w-full px-5 py-2">
               <a href="#">
                 <h5 className="text-2xl font-bold tracking-tight text-[#53346D] dark:text-white">
                   {cart?.proName}
@@ -54,9 +74,9 @@ const Carts = () => {
                 </span>
               </div>
               <div className="lg:flex justify-between mt-4">
-                <Link to={`/product/${cart._id}`} className="btn btn-nav">
+                <button onClick={()=>handleDelete(cart._id)} className="btn btn-nav">
                   Delete
-                </Link>
+                </button>
                 {/* <Link to={`/update/${cart._id}`} className="btn btn-nav">
                   Update
                 </Link> */}
