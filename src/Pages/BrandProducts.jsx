@@ -1,11 +1,14 @@
+import { Rating } from "@material-tailwind/react";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const BrandProducts = () => {
-    const brandProducts = useLoaderData();
-    const params = useParams();
-    console.log(brandProducts);
-    const particularBrandProducts = brandProducts.filter(brandProduct => brandProduct.brand === params.name);
-    console.log(particularBrandProducts);
+  const brandProducts = useLoaderData();
+  const params = useParams();
+  console.log(brandProducts);
+  const particularBrandProducts = brandProducts.filter(
+    (brandProduct) => brandProduct.brand === params.name
+  );
+  console.log(particularBrandProducts);
   return (
     <div>
       {/* bg-gradient-to-r from-[#c31432] to-[#240b36] */}
@@ -54,9 +57,61 @@ const BrandProducts = () => {
         </div>
       </div>
 
-      <div>
-        {" "}
-        <h2>{brandProducts.length}</h2>
+      <h1 className="text-5xl text-center font-bold my-10">
+        {params.name} Products
+      </h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-[80%] mx-auto ">
+        {particularBrandProducts?.length != 0 ? (
+          particularBrandProducts.map((product) => (
+            <div
+              key={product._id}
+              className="  max-w-xl bg-white  rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700"
+            >
+              <a href="#">
+                <img
+                  className=" rounded-xl cover mb-10"
+                  src={product.proImg}
+                  alt="product image"
+                />
+              </a>
+              <div className="px-5 pb-5">
+                <a href="#">
+                  <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {product.proName}
+                  </h5>
+                </a>
+                <div className="flex justify-between mt-4">
+                  <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    {product.brand}
+                  </p>
+                  <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    {product.type}
+                  </p>
+                </div>
+                <div className="flex items-center mt-2.5 mb-5">
+                  <Rating readonly value={parseInt(product.rating)} />
+                  {/* static  */}
+                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                    {product.rating}.0
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                    ${product.price}
+                  </span>
+                </div>
+                <div className="lg:flex justify-between mt-4">
+                  <button className="btn-nav">Details</button>
+                  <button className="btn-nav">Update</button>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          
+          <p>No data</p>
+        )}
       </div>
     </div>
   );
