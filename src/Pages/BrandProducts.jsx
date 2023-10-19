@@ -1,16 +1,20 @@
 import { Rating } from "@material-tailwind/react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import Footer from "../Components/Footer";
+import { useEffect, useState } from "react";
 
 const BrandProducts = () => {
+  const [particularBrandProducts, setParticularBrandProducts] = useState([]);
   const brandProducts = useLoaderData();
   const params = useParams();
-  console.log(brandProducts);
-  const particularBrandProducts = brandProducts.filter(
-    (brandProduct) => brandProduct.brand === params.name
-  );
-  console.log(particularBrandProducts);
+  useEffect(() => {
+     const partBrandProducts = brandProducts.filter(
+       (brandProduct) => brandProduct.brand === params.name
+     );
+     setParticularBrandProducts(partBrandProducts);
+  },[])
   return (
-    <div>
+    <div className="">
       {/* bg-gradient-to-r from-[#c31432] to-[#240b36] */}
       <div className="carousel w-full h-[700px]">
         <div id="slide2" className="carousel-item relative w-full">
@@ -57,62 +61,66 @@ const BrandProducts = () => {
         </div>
       </div>
 
-      <h1 className="text-5xl text-center font-bold my-10">
+      <h1 className="text-5xl text-[#53346D] text-center font-bold my-10">
         {params.name} Products
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-[80%] mx-auto ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-[80%] mx-auto mb-10">
         {particularBrandProducts?.length != 0 ? (
           particularBrandProducts.map((product) => (
             <div
               key={product._id}
-              className="  max-w-xl bg-white  rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700"
+              className="  max-w-lg bg-white  rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700"
             >
               <a href="#">
                 <img
-                  className=" rounded-xl cover mb-10"
+                  className="lg:h-[400px] w-full rounded-xl cover mb-10"
                   src={product.proImg}
                   alt="product image"
                 />
               </a>
               <div className="px-5 pb-5">
                 <a href="#">
-                  <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  <h5 className="text-2xl font-bold tracking-tight text-[#53346D] dark:text-white">
                     {product.proName}
                   </h5>
                 </a>
                 <div className="flex justify-between mt-4">
-                  <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  <p className="text-xl font-semibold tracking-tight text-[#53346D] dark:text-white">
                     {product.brand}
                   </p>
-                  <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  <p className="text-xl font-semibold tracking-tight text-[#53346D] dark:text-white">
                     {product.type}
                   </p>
                 </div>
                 <div className="flex items-center mt-2.5 mb-5">
                   <Rating readonly value={parseInt(product.rating)} />
                   {/* static  */}
-                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                  <span className="bg-blue-100 text-[#53346D] text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-[#53346D] ml-3">
                     {product.rating}.0
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                  <span className="text-3xl font-bold text-[#53346D] dark:text-white">
                     ${product.price}
                   </span>
                 </div>
                 <div className="lg:flex justify-between mt-4">
-                  <button className="btn-nav">Details</button>
-                  <button className="btn-nav">Update</button>
+                  <Link to={`/product/${product._id}`} className="btn-nav">Details</Link>
+                  <Link to={`/update/${product._id}`} className="btn-nav">Update</Link>
                 </div>
               </div>
             </div>
           ))
         ) : (
-          
-          <p>No data</p>
+          <div className="max-h-screen w-full flex justify-center items-center my-10 md:ml-48  lg:ml-80"> 
+              <h2 className="text-5xl text-center font-bold">No products available yet on {params.name} Brand</h2>
+              
+              
+          </div>
         )}
       </div>
+      <Footer></Footer>
     </div>
   );
 };

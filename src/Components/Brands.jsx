@@ -6,13 +6,13 @@ const Brands = () => {
 
 
   useEffect(() => {
-    fetch("../../public/Brands.json")
+    fetch("./Brands.json")
       .then((res) => res.json())
       .then((data) => setBrands(data));
   },[])
 
 
-  return (
+  return ( 
     <div className="w-[90%] mx-auto my-10">
       <h1 className="text-5xl font-bold text-center py-10 text-[#1D2671]">
         Our Most Demanded Brands

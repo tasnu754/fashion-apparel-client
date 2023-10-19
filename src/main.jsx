@@ -15,6 +15,7 @@ import AddProducts from './Pages/AddProducts';
 import Carts from './Pages/Carts';
 import PrivateRoute from './Pages/PrivateRoute';
 import BrandProducts from './Pages/BrandProducts';
+import ProductDetails from './Pages/ProductDetails';
 
 
 const router = createBrowserRouter([
@@ -56,7 +57,16 @@ const router = createBrowserRouter([
       {
         path: "/brand/:name",
         element: <BrandProducts></BrandProducts>,
-        loader: () => fetch("http://localhost:5000/brand")
+        loader: () =>
+          fetch("https://fashion-apparel-server-five.vercel.app/brand"),
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetails></ProductDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://fashion-apparel-server-five.vercel.app/product/${params.id}`
+          ),
       },
     ],
   },
