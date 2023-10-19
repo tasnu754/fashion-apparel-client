@@ -8,11 +8,11 @@ const BrandProducts = () => {
   const brandProducts = useLoaderData();
   const params = useParams();
   useEffect(() => {
-     const partBrandProducts = brandProducts.filter(
-       (brandProduct) => brandProduct.brand === params.name
-     );
-     setParticularBrandProducts(partBrandProducts);
-  },[])
+    const partBrandProducts = brandProducts.filter(
+      (brandProduct) => brandProduct.brand === params.name
+    );
+    setParticularBrandProducts(partBrandProducts);
+  }, []);
   return (
     <div className="">
       {/* bg-gradient-to-r from-[#c31432] to-[#240b36] */}
@@ -104,6 +104,7 @@ const BrandProducts = () => {
                   <span className="text-3xl font-bold text-[#53346D] dark:text-white">
                     ${product.price}
                   </span>
+              
                 </div>
                 <div className="lg:flex justify-between mt-4">
                   <Link to={`/product/${product._id}`} className="btn-nav">Details</Link>
@@ -115,7 +116,6 @@ const BrandProducts = () => {
         ) : (
           <div className="max-h-screen w-full flex justify-center items-center my-10 md:ml-48  lg:ml-80"> 
               <h2 className="text-5xl text-center font-bold">No products available yet on {params.name} Brand</h2>
-              
               
           </div>
         )}
