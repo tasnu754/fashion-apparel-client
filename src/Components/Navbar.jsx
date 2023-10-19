@@ -9,7 +9,7 @@ const Navbar = () => {
   const handleSignout = () => {
     logout()
       .then(() => {
-        
+       
       })
     .catch(error => console.log(error))
   }
