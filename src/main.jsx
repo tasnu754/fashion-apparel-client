@@ -14,6 +14,7 @@ import FirebaseAuth from './Pages/firebaseAuth';
 import AddProducts from './Pages/AddProducts';
 import Carts from './Pages/Carts';
 import PrivateRoute from './Pages/PrivateRoute';
+import BrandProducts from './Pages/BrandProducts';
 
 
 const router = createBrowserRouter([
@@ -36,11 +37,26 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <PrivateRoute> <AddProducts></AddProducts> </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <AddProducts></AddProducts>{" "}
+          </PrivateRoute>
+        ),
       },
       {
         path: "/cart",
-        element: <PrivateRoute> <Carts></Carts> </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Carts></Carts>{" "}
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/brand/:name",
+        element: <BrandProducts></BrandProducts>,
+        loader: () => fetch("http://localhost:5000/brand")
       },
     ],
   },

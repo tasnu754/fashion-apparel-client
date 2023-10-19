@@ -1,5 +1,36 @@
 import swal from "sweetalert";
 
+// gucci
+// https://i.ibb.co/pX0TfW6/johanne-pold-jacobsen-1-A5h-Sv-PZj-Mc-unsplash.jpg lipstick
+// https://i.ibb.co/MnyVTqr/karolina-bobek-TOBGYAOah7o-unsplash.jpg perfume
+// https://i.ibb.co/QfmvMkC/max-anderson-gmx-Tz-ER0ih8-unsplash.jpg shoe
+// https://i.ibb.co/bX9MyWM/arno-senoner-q1-Wqpj-Ay-G9k-unsplash.jpg neckles
+
+// Louis Vuitton
+// https://i.ibb.co/hyHNDx0/dillon-kydd-d-B2ek-Zj-ZMLE-unsplash.jpg breclete
+// https://i.ibb.co/mNr1wK8/nayris-aquino-UQDAHSv5-Nks-unsplash.jpg perfume
+// https://i.ibb.co/CvPwL9k/kyle-bushnell-s-Qrvby6-ILc-A-unsplash.jpg bag
+// https://i.ibb.co/PZ1vvCv/yannes-kiefer-v7ce2oa-S2z0-unsplash.jpg nailpolish
+
+// Dior
+// https://i.ibb.co/TKTSRNk/badreddine-farhi-s-R2zm-Fg-Zf3-A-unsplash.jpg sunglass
+// https://i.ibb.co/6XbCQCf/hitesh-dewasi-vg-Nfa-Gu-O95-Q-unsplash.jpg perfume
+// https://i.ibb.co/9n5mZnj/hitesh-dewasi-f-XTwsb-VN8-Hk-unsplash.jpg lipstick
+// https://i.ibb.co/4R07M2g/hitesh-dewasi-9-YW-W7cj-Hkg-unsplash.jpg  foundation
+
+// nike
+// https://i.ibb.co/0FRCN5c/nayris-aquino-zi-M8vy-o0-unsplash.jpg watch
+// https://i.ibb.co/q99B518/gebhartyler-q-IEId-W3jx2-Q-unsplash.jpg shoe
+// https://i.ibb.co/SXsbVKQ/nayris-aquino-xrt-HQOXqpc-U-unsplash.jpg earphone
+// https://i.ibb.co/C9d81Lp/mohammed-attia-w-YVKRBIch-V0-unsplash.jpg shoe
+
+// Adidas
+// https://i.ibb.co/7J6rT4f/camilla-carvalho-Cgb4g-MKRc-MA-unsplash.jpg t-shirt
+// https://i.ibb.co/931q0nY/daniel-storek-JM-q-KEd1-GMI-unsplash.jpg shoe
+// https://i.ibb.co/tXyX8Fn/filip-baotic-Hj-Z0q-ARr-QDY-unsplash.jpg jacket
+// https://i.ibb.co/1sJCjRF/anthony-tedja-2wq-XZv-KJk-EQ-unsplash.jpg basketball
+
+
 const AddProducts = () => {
   const handleAddProduct = (e) => {
     e.preventDefault();
@@ -80,7 +111,7 @@ const AddProducts = () => {
                   required
                 />
               </div>
-            
+
               <div>
                 <label
                   htmlFor="brand"
@@ -93,12 +124,12 @@ const AddProducts = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 >
                   <option selected>Select Brand</option>
-                  <option value="TV">Louis Vuitton</option>
-                  <option value="PC">Dior</option>
-                  <option value="GA">Gucci</option>
-                  <option value="PH">Nike</option>
-                  <option value="PH">Chanel</option>
-                  <option value="PH">Adidas</option>
+                  <option value="Louis Vuitton">Louis Vuitton</option>
+                  <option value="Dior">Dior</option>
+                  <option value="Gucci">Gucci</option>
+                  <option value="Nike">Nike</option>
+                  <option value="Chanel">Chanel</option>
+                  <option value="Adidas">Adidas</option>
                 </select>
               </div>
 
