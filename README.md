@@ -1,7 +1,10 @@
-Client side live link: 
+Client side live link: https://fashion-apparel-2e292.web.app/
+
+Server side live link: https://fashion-apparel-server-five.vercel.app/
 
 
 
+** Five Project featurs**
 
 * This is a fashion and apparel website. Here I set up user authentication using firebase authentication There are 4 section in navbar. Two section are private. When user log in those section will be appear.
 
