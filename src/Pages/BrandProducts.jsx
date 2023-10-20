@@ -68,9 +68,9 @@ const BrandProducts = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-[80%] mx-auto mb-10">
         {particularBrandProducts?.length != 0 ? (
-          particularBrandProducts?.map((product) => (
+          particularBrandProducts?.map((product ,idx) => (
             <div
-              key={product._id}
+              key={idx}
               className="  max-w-lg bg-white  rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700"
             >
               <a href="#">

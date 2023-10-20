@@ -55,7 +55,7 @@ const AddProducts = () => {
 
     console.log(product);
 
-    fetch("http://localhost:5000/product", {
+    fetch("https://fashion-apparel-server-five.vercel.app/product", {
       method: "POST",
       headers: {
         "content-type": "application/json",

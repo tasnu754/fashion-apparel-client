@@ -28,7 +28,7 @@ const Update = () => {
 
         console.log(updated);
 
-        fetch(`http://localhost:5000/update/${loadUpdate._id}`, {
+        fetch(`https://fashion-apparel-server-five.vercel.app/update/${loadUpdate._id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",
@@ -98,10 +98,10 @@ const Update = () => {
                   </label>
                   <select
                     id="brand"
-                    // defaultValue={loadUpdate.brand}
+                    defaultValue={loadUpdate.brand}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   >
-                    <option selected>{loadUpdate.brand}</option>
+                    {/* <option selected>Select</option> */}
                     <option value="Louis Vuitton">Louis Vuitton</option>
                     <option value="Dior">Dior</option>
                     <option value="Gucci">Gucci</option>

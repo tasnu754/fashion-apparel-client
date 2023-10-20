@@ -1,37 +1,37 @@
 
 [
     {
-   "id": 1,
+   "id": 11,
    "brandName": "Louis Vuitton",
    "image": "https://i.ibb.co/s6mYNsJ/clarisse-croset-Eiiijhn-JLVs-unsplash.jpg",
    "description": "World leading international fashion houses"
 },
 {
-   "id": 2,
+   "id": 12,
    "brandName": "Dior",
    "image": "https://i.ibb.co/Fx2dSSb/luis-de-leon-uup-MVp-Gz964-unsplash.jpg",
    "description": "French multinational luxury fashion"
 },
 {
-   "id": 3,
+   "id": 13,
    "brandName": "Gucci",
    "image": "https://i.ibb.co/TRgWSZ8/long-phan-th-Tnny-B4oks-unsplash.jpg",
    "description": "An Italian fashion brand"
 },
 {
-   "id": 4,
+   "id": 14,
    "brandName": "Nike",
    "image": "https://i.ibb.co/gmSFVGR/nelson-ndongala-efdd1-QPn-IGI-unsplash.jpg",
    "description": "American athletic footwear"
 },
 {
-   "id": 5,
+   "id": 15,
    "brandName": "Chanel",
    "image": "https://i.ibb.co/8snTksd/silvia-Ue4-A4d-Vg-C5-A-unsplash.jpg",
    "description": "French luxury fashion house"
 },
 {
-   "id": 6,
+   "id": 16,
    "brandName": "Adidas",
    "image": "https://i.ibb.co/61gNF1V/christian-wiediger-8d8-Kfp-YCQV0-unsplash.jpg",
    "description": "German athletic apparel"
