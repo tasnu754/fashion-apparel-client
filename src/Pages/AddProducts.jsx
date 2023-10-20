@@ -115,7 +115,7 @@ const AddProducts = () => {
               <div>
                 <label
                   htmlFor="brand"
-                  className="block mb-2 text-xl font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-xl font-medium text-[#53346D] dark:text-white"
                 >
                   Brand
                 </label>

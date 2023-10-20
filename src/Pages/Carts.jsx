@@ -10,27 +10,25 @@ const Carts = () => {
     const [carts, setCarts] = useState([]);
     // const loadCarts = useLoaderData();
     useEffect(() => {
-        fetch("http://localhost:5000/carts")
+        fetch("https://fashion-apparel-server-five.vercel.app/carts")
           .then((res) => res.json())
           .then((data) => setCarts(data));
     }, [])
     
     const handleDelete = (id) => {
         
-        fetch(`http://localhost:5000/carts/${id}`, {
-            method: 'DELETE'
+        fetch(`https://fashion-apparel-server-five.vercel.app/carts/${id}`, {
+          method: "DELETE",
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount > 0) {
-                    swal(
-                      "Deleted!",
-                      "Successfully",
-                      "success"
-                    );
-               }
-        })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
+            if (data.deletedCount > 0) {
+              swal("Deleted!", "Successfully", "success");
+              const findDelete = carts.filter((cart) => cart._id != id);
+              setCarts(findDelete);
+            }
+          });
     }
 
     return (
