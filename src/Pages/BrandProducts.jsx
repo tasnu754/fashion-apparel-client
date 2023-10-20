@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const BrandProducts = () => {
   const [particularBrandProducts, setParticularBrandProducts] = useState([]);
   const brandProducts = useLoaderData();
+  // console.log(brandProducts);
   const params = useParams();
   useEffect(() => {
     const partBrandProducts = brandProducts.filter(

@@ -10,14 +10,14 @@ const Carts = () => {
     const [carts, setCarts] = useState([]);
     // const loadCarts = useLoaderData();
     useEffect(() => {
-        fetch("https://fashion-apparel-server-five.vercel.app/carts")
+        fetch("http://localhost:5000/carts")
           .then((res) => res.json())
           .then((data) => setCarts(data));
     }, [])
     
     const handleDelete = (id) => {
         
-        fetch(`https://fashion-apparel-server-five.vercel.app/carts/${id}`, {
+        fetch(`http://localhost:5000/carts/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

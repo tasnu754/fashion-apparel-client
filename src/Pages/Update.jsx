@@ -1,10 +1,49 @@
-import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import swal from "sweetalert";
 
 const Update = () => {
-    const params = useParams();
-    console.log(params);
-    const handleUpdate = () => {
+    const loadDataUpdate = useLoaderData();
+    const [loadUpdate, setLoadUpdate] = useState(loadDataUpdate);
+    
+    // console.log(loadUpdate);
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const proName = form.name.value;
+        const proImg = form.image.value;
+        const brand = form.brand.value;
+        const type = form.type.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const updated = {
+          proName,
+          proImg,
+          brand,
+          type,
+          price,
+          rating,
+        };
         
+
+        console.log(updated);
+
+        fetch(`http://localhost:5000/update/${loadUpdate._id}`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updated),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+              if (data.modifiedCount > 0) {
+                setLoadUpdate(updated);
+              swal("Product Updated!", "Successfully", "success");
+              
+            }
+          });
     }
     return (
       <div>
@@ -26,6 +65,7 @@ const Update = () => {
                     type="text"
                     name="name"
                     id="name"
+                    defaultValue={loadUpdate.proName}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Type product name"
                     required
@@ -42,6 +82,7 @@ const Update = () => {
                     type="text"
                     name="image"
                     id="image"
+                    defaultValue={loadUpdate.proImg}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Image"
                     required
@@ -57,9 +98,10 @@ const Update = () => {
                   </label>
                   <select
                     id="brand"
+                    // defaultValue={loadUpdate.brand}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   >
-                    <option selected>Select Brand</option>
+                    <option selected>{loadUpdate.brand}</option>
                     <option value="Louis Vuitton">Louis Vuitton</option>
                     <option value="Dior">Dior</option>
                     <option value="Gucci">Gucci</option>
@@ -80,6 +122,7 @@ const Update = () => {
                     type="text"
                     name="type"
                     id="type"
+                    defaultValue={loadUpdate.type}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Product type"
                     required
@@ -96,6 +139,7 @@ const Update = () => {
                     type="number"
                     name="price"
                     id="price"
+                    defaultValue={loadUpdate.price}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Price"
                     required
@@ -112,6 +156,7 @@ const Update = () => {
                     type="number"
                     name="rating"
                     id="rating"
+                    defaultValue={loadUpdate.rating}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Rating"
                     required

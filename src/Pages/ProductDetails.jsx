@@ -6,7 +6,7 @@ const ProductDetails = () => {
     const loadData = useLoaderData();
 
     const handleAddCart = () => {
-        fetch("https://fashion-apparel-server-five.vercel.app/add", {
+        fetch("http://localhost:5000/add", {
           method: "POST",
           headers: {
             "content-type": "application/json",

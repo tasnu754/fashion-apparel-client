@@ -55,7 +55,7 @@ const AddProducts = () => {
 
     console.log(product);
 
-    fetch("https://fashion-apparel-2e292.web.app/product", {
+    fetch("http://localhost:5000/product", {
       method: "POST",
       headers: {
         "content-type": "application/json",
