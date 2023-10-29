@@ -5,6 +5,7 @@ import {
 
 } from "./firebaseAuth";
 import { FaGoogle } from "react-icons/fa";
+import axios from "axios";
 
 const Signin = () => {
   const { login, goggleLogin } = useContext(AuthProvider);
@@ -16,13 +17,17 @@ const Signin = () => {
     const form = e.target;
     const email = form.email.value;
     const pass = form.password.value;
-    console.log(email, pass);
+  
 
     login(email, pass)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        const loguser = result.user;
+        console.log(loguser);
         form.reset();
+        const user = { email };
+
+        axios.post("http://localhost:5000/jwt", user)
+        .then(res => console.log(res.data))
       })
       .catch((error) => {
         if (error) return setError(error.message);

@@ -14,7 +14,7 @@ const Carts = () => {
     // const loadCarts = useLoaderData();
     useEffect(() => {
       fetch(
-        `http://localhost:5000/carts?email=${user?.email}`
+        `https://fashion-apparel-server-five.vercel.app/carts?email=${user?.email}`
       )
         .then((res) => res.json())
         .then((data) => {
