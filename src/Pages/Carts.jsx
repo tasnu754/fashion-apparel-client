@@ -4,6 +4,7 @@ import { Rating } from "@material-tailwind/react";
 import { useContext, useEffect, useState } from "react";
 import swal from "sweetalert";
 import { AuthProvider } from "./firebaseAuth";
+import axios from "axios";
 
 
 const Carts = () => {
@@ -12,15 +13,24 @@ const Carts = () => {
   // console.log(user);
     const [carts, setCarts] = useState([]);
     // const loadCarts = useLoaderData();
-    useEffect(() => {
-      fetch(
-        `https://fashion-apparel-server-five.vercel.app/carts?email=${user?.email}`
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:5000/carts?email=${user?.email}`,
+        { withCredentials: true }
       )
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data, user?.email);
-          setCarts(data);
-        });
+      .then((res) => {
+        setCarts(res.data);
+      });
+    
+      // fetch(
+      //   `https://fashion-apparel-server-five.vercel.app/carts?email=${user?.email}`
+      // )
+      //   .then((res) => res.json())
+      //   .then((data) => {
+      //     console.log(data, user?.email);
+      //     setCarts(data);
+      //   });
     }, [user.email]);
     
     const handleDelete = (id) => {
