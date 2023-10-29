@@ -1,9 +1,17 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
+import { AuthProvider } from "./firebaseAuth";
 
 const ProductDetails = () => {
+    const { user } = useContext(AuthProvider);
+  const loadData = useLoaderData();
+  // console.log(user, loadData);
+  const email = user?.email;
+  const useloadData = { ...loadData, email };
+  console.log(useloadData);
 
-    const loadData = useLoaderData();
+    
 
     const handleAddCart = () => {
         fetch("https://fashion-apparel-server-five.vercel.app/add", {
@@ -11,7 +19,7 @@ const ProductDetails = () => {
           headers: {
             "content-type": "application/json",
           },
-          body: JSON.stringify(loadData),
+          body: JSON.stringify(useloadData),
         })
           .then((res) => res.json())
           .then((data) => {
