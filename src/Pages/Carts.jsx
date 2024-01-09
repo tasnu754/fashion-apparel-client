@@ -10,27 +10,16 @@ import axios from "axios";
 const Carts = () => {
 
   const { user } = useContext(AuthProvider);
-  // console.log(user);
     const [carts, setCarts] = useState([]);
-    // const loadCarts = useLoaderData();
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/carts?email=${user?.email}`,
-        { withCredentials: true }
-      )
+      .get(`https://fashion-apparel-server-five.vercel.app/carts?email=${user?.email}`, {
+      })
       .then((res) => {
         setCarts(res.data);
       });
     
-      // fetch(
-      //   `https://fashion-apparel-server-five.vercel.app/carts?email=${user?.email}`
-      // )
-      //   .then((res) => res.json())
-      //   .then((data) => {
-      //     console.log(data, user?.email);
-      //     setCarts(data);
-      //   });
+   
     }, [user.email]);
     
     const handleDelete = (id) => {
@@ -40,7 +29,6 @@ const Carts = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            // console.log(data);
             if (data.deletedCount > 0) {
               swal("Deleted!", "Successfully", "success");
               const findDelete = carts.filter((cart) => cart._id != id);

@@ -6,7 +6,7 @@ import { AuthProvider } from "./firebaseAuth";
 const ProductDetails = () => {
     const { user } = useContext(AuthProvider);
   const loadData = useLoaderData();
-  // console.log(user, loadData);
+  console.log(user, loadData);
   const email = user?.email;
   const useloadData = { ...loadData, email };
   console.log(useloadData);

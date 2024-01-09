@@ -38,10 +38,9 @@ const Update = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-              if (data.modifiedCount > 0) {
-                setLoadUpdate(updated);
+            if (data.modifiedCount > 0) {
+              setLoadUpdate(updated);
               swal("Product Updated!", "Successfully", "success");
-              
             }
           });
     }

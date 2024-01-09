@@ -26,8 +26,11 @@ const Signin = () => {
         form.reset();
         const user = { email };
 
-        axios.post("http://localhost:5000/jwt", user , {withCredentials:true})
-        .then(res => console.log(res.data))
+     
+        axios
+          .post("https://fashion-apparel-server-five.vercel.app/jwt", user, {
+          })
+          .then((res) => console.log(res.data));
       })
       .catch((error) => {
         if (error) return setError(error.message);
