@@ -1,6 +1,6 @@
-Client side live link: https://fashion-apparel-2e292.web.app/
+Client side live link: https://fashion-4e7f9.web.app
 
-Server side live link: https://fashion-apparel-server-five.vercel.app/
+Server side live link: https://fashion-apparel-server-five.vercel.app
 
 
 
